@@ -123,15 +123,16 @@ resource "aws_instance" "phi" {
     volume_type = "gp2"
   }
 
-  provisioner "local-exec" {
-    connection {
-      type        = "ssh"
-      user        = "ubuntu"
-      host        = self.public_ip
-      private_key = file(var.private_key_path)
-    }
+  provisioner "remote-exec" {
+		connection {
+			type        = "ssh"
+			user        = "ubuntu"
+			host        = self.public_ip
+			private_key = file(var.private_key_path)
+			}
 
-    command = "cd /home/ubuntu/ && git clone https://github.com/OZB96/k8s-jenkins && cd k8s-jenkins && ./jenkins.sh"
-  }
+    inline = ["cd /home/ubuntu/ && git clone https://github.com/OZB96/k8s-jenkins && cd k8s-jenkins && ./jenkins.sh"]
+	}
+	
   tags = module.tags_phi.tags
 }
