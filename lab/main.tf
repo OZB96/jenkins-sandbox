@@ -131,7 +131,7 @@ resource "aws_instance" "phi" {
       private_key = file(var.private_key_path)
     }
 
-    command = "cd /home/ubuntu && git clone https://github.com/OZB96/k8s-jenkins && cd k8s-jenkins && ./jenkins.sh"
+    command = "cd /home/ubuntu/ && git clone https://github.com/OZB96/k8s-jenkins && cd k8s-jenkins && ./jenkins.sh"
   }
   tags = module.tags_phi.tags
 }
