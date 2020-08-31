@@ -122,7 +122,7 @@ resource "aws_instance" "phi" {
     volume_size = 100
     volume_type = "gp2"
   }
-/*
+
   provisioner "remote-exec" {
 		connection {
 			type        = "ssh"
@@ -134,5 +134,5 @@ resource "aws_instance" "phi" {
     inline = ["cd /home/ubuntu/ && git clone https://github.com/OZB96/k8s-jenkins && cd k8s-jenkins && ./jenkins.sh"]
 	}
 	
-  tags = module.tags_phi.tags  */
+  tags = module.tags_phi.tags  
 }
