@@ -133,7 +133,7 @@ resource "aws_instance" "phi" {
 
    /* inline = ["cd /home/ubuntu/ && git clone https://github.com/OZB96/k8s-jenkins && cd k8s-jenkins && ./jenkins.sh"]*/
 
-    inline = ["cd /home/ubuntu/ && git clone https://github.com/OZB96/labs && cd labs && make up && make deploy"]
+    inline = ["cd /home/ubuntu/ && git clone https://github.com/OZB96/labs && cd labs && make up"]
  }
 	
   tags = module.tags_phi.tags  
