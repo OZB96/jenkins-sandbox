@@ -131,9 +131,9 @@ resource "aws_instance" "phi" {
 			private_key = file(var.private_key_path)
 			}
 
-    inline = ["cd /home/ubuntu/ && git clone https://github.com/OZB96/k8s-jenkins && cd k8s-jenkins && ./jenkins.sh"]
+    // inline = ["cd /home/ubuntu/ && git clone https://github.com/OZB96/k8s-jenkins && cd k8s-jenkins && ./jenkins.sh"]
 
-    //inline = ["cd /home/ubuntu/ && git clone https://github.com/OZB96/labs && cd labs && make up"]
+    inline = ["cd /home/ubuntu/ && git clone https://github.com/OZB96/labs && cd labs && make cluster && make jenkins"]
  }
 	
   tags = module.tags_phi.tags  
